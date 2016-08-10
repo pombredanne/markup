@@ -8,7 +8,7 @@ module GitHub
           GitHub::Markdown.render(content)
         },
         "redcarpet" => proc { |content|
-          RedcarpetCompat.new(content).to_html
+          Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(content)
         },
         "rdiscount" => proc { |content|
           RDiscount.new(content).to_html
@@ -25,7 +25,7 @@ module GitHub
       }
 
       def initialize
-        super(/md|mkdn?|mdwn|mdown|markdown|litcoffee/)
+        super(/md|rmd|mkdn?|mdwn|mdown|markdown|litcoffee/i)
       end
 
       def load
@@ -42,6 +42,10 @@ module GitHub
       def render(content)
         load
         @renderer.call(content)
+      end
+
+      def name
+        "markdown"
       end
 
     private

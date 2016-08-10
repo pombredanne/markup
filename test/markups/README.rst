@@ -31,6 +31,19 @@ The UTF-8 quote character in this table used to cause python to go boom. Now doc
 	Tabular Data, 5
 	Made up ratings, 11
 
+.. code::
+
+	A block of code
+
+.. code:: python
+
+	python.code('hooray')
+
+.. doctest:: ignored
+
+	>>> some_function()
+	'result'
+
 ==============  ==========================================================
 Travis          http://travis-ci.org/tony/pullv
 Docs            http://pullv.rtfd.org
@@ -46,3 +59,21 @@ Source          https://github.com/tony/pullv
 
 .. image:: https://scan.coverity.com/projects/621/badge.svg
 	:alt: Coverity Scan Build Status
+
+Field list
+----------
+
+:123456789 123456789 123456789 123456789 123456789 1: Uh-oh! This name is too long!
+:123456789 123456789 123456789 123456789 1234567890: this is a long name,
+	but no problem!
+:123456789 12345: this is not so long, but long enough for the default!
+:123456789 1234: this should work even with the default :)
+
+someone@somewhere.org
+
+Press :kbd:`Ctrl+C` to quit
+
+
+.. raw:: html
+
+    <p><strong>RAW HTML!</strong></p><style> p {color:blue;} </style>
